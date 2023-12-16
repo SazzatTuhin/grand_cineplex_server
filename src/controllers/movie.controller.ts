@@ -25,7 +25,7 @@ export default class MovieController {
 
     try {
       if (!mongoose.Types.ObjectId.isValid(mid)) {
-        res.status(404).json({ message: 'User not found' });
+        res.status(404).json({ message: 'Movie not found' });
         return;
       }
 
@@ -53,13 +53,13 @@ export default class MovieController {
         return;
       }
 
-      if (!mongoose.Types.ObjectId.isValid(mid)) {
-        res.status(404).json({ message: 'User not found' });
+      if (!mongoose.Types.ObjectId.isValid(movie_id)) {
+        res.status(404).json({ message: 'Movie not found' });
         return;
       }
 
       if (mid !== movie_id) {
-        res.status(403).json({ message: 'Movie not found' });
+        res.status(404).json({ message: 'Movie not found' });
         return;
       }
 
@@ -70,7 +70,7 @@ export default class MovieController {
       );
 
       if (alreadyMarked) {
-        res.status(403).json({ message: 'Movie already added' });
+        res.status(404).json({ message: 'Movie already added' });
         return;
       }
 
@@ -87,7 +87,7 @@ export default class MovieController {
           },
         });
 
-        res.status(200).json({ message: 'Movie marked as favourite' });
+        res.status(200).json({ message: 'Movie marked as favourite.' });
       });
     } catch (error: unknown) {
       await handleError(error, res);
@@ -117,7 +117,6 @@ export default class MovieController {
 
   public async updateAMovie(req: Request, res: Response): Promise<void> {
     const { title, posters, year, genre, plot, rating } = req.body;
-
     const { mid } = req.params;
 
     try {

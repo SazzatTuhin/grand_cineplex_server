@@ -36,12 +36,13 @@ export default class UserController {
 
   public async updateAnUser(req: Request, res: Response): Promise<void> {
     const { uid } = req.params;
-    const userId = req.user?._id;
     const { name, photoUrl } = req.body;
+    const userId = req.user?._id;
 
     try {
       if (!mongoose.Types.ObjectId.isValid(uid)) {
         res.status(404).json({ message: 'User not found' });
+        return;
       }
 
       if (uid !== userId?.toString()) {
@@ -71,10 +72,11 @@ export default class UserController {
   public async deleteAnUser(req: Request, res: Response): Promise<void> {
     const { uid } = req.params;
     const userId = req.user?._id;
-    console.log('print');
+
     try {
       if (!mongoose.Types.ObjectId.isValid(uid)) {
         res.status(404).json({ message: 'User not found' });
+        return;
       }
 
       if (uid !== userId?.toString()) {

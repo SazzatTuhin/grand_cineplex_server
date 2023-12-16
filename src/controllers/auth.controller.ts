@@ -11,7 +11,7 @@ export default class AuthController {
   public async register(req: Request, res: Response): Promise<void> {
     try {
       const { name, email, password, photoUrl } = req.body;
-      console.log('hello');
+
       await Promise.resolve().then(async () => {
         const user = await UserModel.register(name, email, password, photoUrl);
 

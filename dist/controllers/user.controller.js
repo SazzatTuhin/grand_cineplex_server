@@ -35,11 +35,12 @@ class UserController {
     async updateAnUser(req, res) {
         var _a;
         const { uid } = req.params;
-        const userId = (_a = req.user) === null || _a === void 0 ? void 0 : _a._id;
         const { name, photoUrl } = req.body;
+        const userId = (_a = req.user) === null || _a === void 0 ? void 0 : _a._id;
         try {
             if (!mongoose_1.default.Types.ObjectId.isValid(uid)) {
                 res.status(404).json({ message: 'User not found' });
+                return;
             }
             if (uid !== (userId === null || userId === void 0 ? void 0 : userId.toString())) {
                 res.status(403).json({ message: 'Forbidden' });
@@ -62,10 +63,10 @@ class UserController {
         var _a;
         const { uid } = req.params;
         const userId = (_a = req.user) === null || _a === void 0 ? void 0 : _a._id;
-        console.log('print');
         try {
             if (!mongoose_1.default.Types.ObjectId.isValid(uid)) {
                 res.status(404).json({ message: 'User not found' });
+                return;
             }
             if (uid !== (userId === null || userId === void 0 ? void 0 : userId.toString())) {
                 res.status(403).json({ message: 'Forbidden' });
