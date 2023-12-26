@@ -36,13 +36,13 @@ class ActorController {
         }
     }
     async createAnActor(req, res) {
-        const { name, photoUrl, dateofBirth, country } = req.body;
+        const { name, photoUrl, dateOfBirth, country } = req.body;
         try {
             await Promise.resolve().then(async () => {
                 const actor = await actor_model_1.default.create({
                     name,
                     photoUrl,
-                    dateofBirth,
+                    dateOfBirth,
                     country,
                 });
                 res.status(200).json(actor);

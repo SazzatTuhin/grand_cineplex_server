@@ -38,14 +38,14 @@ export default class ActorController {
   }
 
   public async createAnActor(req: Request, res: Response): Promise<void> {
-    const { name, photoUrl, dateofBirth, country } = req.body;
+    const { name, photoUrl, dateOfBirth, country } = req.body;
 
     try {
       await Promise.resolve().then(async () => {
         const actor = await ActroModel.create({
           name,
           photoUrl,
-          dateofBirth,
+          dateOfBirth,
           country,
         });
 
