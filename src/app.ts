@@ -9,6 +9,7 @@ import dotenv from 'dotenv';
 import authRouter from './routes/auth.route';
 import userRouter from './routes/user.route';
 import movieRouter from './routes/movie.route';
+import actorRouter from './routes/actor.route';
 
 class App {
   private app: Application;
@@ -42,7 +43,7 @@ class App {
     this.app.use('/api/auth', authRouter);
     this.app.use('/api/users', userRouter);
     this.app.use('/api/movies', movieRouter);
-    this.app.use('/api/actors', movieRouter);
+    this.app.use('/api/actors', actorRouter);
   }
 
   private connectToDatabase(): void {

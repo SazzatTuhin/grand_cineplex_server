@@ -14,6 +14,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const auth_route_1 = __importDefault(require("./routes/auth.route"));
 const user_route_1 = __importDefault(require("./routes/user.route"));
 const movie_route_1 = __importDefault(require("./routes/movie.route"));
+const actor_route_1 = __importDefault(require("./routes/actor.route"));
 class App {
     constructor() {
         this.app = (0, express_1.default)();
@@ -39,7 +40,7 @@ class App {
         this.app.use('/api/auth', auth_route_1.default);
         this.app.use('/api/users', user_route_1.default);
         this.app.use('/api/movies', movie_route_1.default);
-        this.app.use('/api/actors', movie_route_1.default);
+        this.app.use('/api/actors', actor_route_1.default);
     }
     connectToDatabase() {
         const URI = process.env.MONGO_URI;
