@@ -11,7 +11,7 @@ const actorSchema = new mongoose.Schema<actorType>(
       type: String,
       required: true,
     },
-    dateofBirth: {
+    dateOfBirth: {
       type: String,
       required: true,
     },

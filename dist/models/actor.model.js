@@ -33,7 +33,7 @@ const actorSchema = new mongoose_1.default.Schema({
         type: String,
         required: true,
     },
-    dateofBirth: {
+    dateOfBirth: {
         type: String,
         required: true,
     },
